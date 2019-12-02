@@ -13,9 +13,13 @@ class App extends React.Component {
             searchfield: ''
         }
     }
-    onSearchChange(event){
+    onSearchChange = (event) => {
+        this.setState({searchfield: event.target.value});
         //should give the value of what is in the search box
-        console.log(event.target.value);
+        const filteredRobots = this.state.robots.filter(robots => {
+            return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        });
+        console.log(filteredRobots);
     }
     render(){
         return (
