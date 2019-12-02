@@ -28,9 +28,10 @@ class App extends React.Component {
         this.setState({searchfield: event.target.value});
     }
     render(){
+        const {robots, searchfield} = this.state;
         //should give the value of what is in the search box
-        const filteredRobots = this.state.robots.filter(robots => {
-            return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase().includes(searchfield.toLowerCase());
         });
         return (
             <div className='tc'>
